@@ -20,6 +20,7 @@ export function SiteFooter() {
           ))}
         </div>
         <div className="flex flex-wrap gap-x-5 gap-y-2">
+          <span className="text-muted/80">More free tools:</span>
           {SIBLING_TOOLS.map((tool) => (
             <a
               key={tool.href}
