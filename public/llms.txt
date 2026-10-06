@@ -26,12 +26,13 @@ Free JSON API. No key, no signup, CORS open. Every endpoint takes GET query para
   yearly OTA commission, share of room revenue, and direct-booking savings
 - OpenAPI 3.1 spec: https://hotel-ota-calculator.vercel.app/openapi.json
 - Plugin manifest: https://hotel-ota-calculator.vercel.app/.well-known/ai-plugin.json
-- MCP (remote, streamable HTTP, no auth), with this and 8 sibling tools: https://free-agent-tools.vercel.app/mcp
+- MCP (remote, streamable HTTP, no auth), with this and 9 sibling tools: https://free-agent-tools.vercel.app/mcp
 
 ## Disclaimer
 Educational estimate only. Not financial or accounting advice. Uses only the numbers you enter; check your own OTA contracts for real commission rates. Not affiliated with any OTA.
 
 ## Other free tools by the same maker
+- Pitch Roast: https://pitch-roast.vercel.app
 - Founder Scorecard: https://fund-fix-flee.vercel.app
 - Japan Trip Brain: https://japan-trip-brain.vercel.app
 - SaaS Bill Cutter: https://saas-bill-cutter.vercel.app
