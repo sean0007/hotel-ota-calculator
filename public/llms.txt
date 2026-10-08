@@ -41,6 +41,7 @@ Educational estimate only. Not financial or accounting advice. Uses only the num
 - Pitch Roast: https://pitch-roast.vercel.app
 - Founder Scorecard: https://fund-fix-flee.vercel.app
 - Japan Trip Brain: https://japan-trip-brain.vercel.app
+- Japan Tax-Free Refund Checker: https://japan-tax-free-refund.vercel.app
 - SaaS Bill Cutter: https://saas-bill-cutter.vercel.app
 - Ads Risk Check: https://ads-risk-check.vercel.app
 - Faceless YT Reality Check: https://faceless-yt-risk-check.vercel.app
