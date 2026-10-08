@@ -3,6 +3,8 @@
 import { useMemo, useState } from "react";
 import { calculate, type Inputs } from "@/lib/calc";
 import { CardDisclaimer } from "@/components/card-disclaimer";
+import { ShareBar } from "@/components/share-bar";
+import { PUBLIC_URL, resultHeadline, resultPath } from "@/lib/share";
 
 const fmt = (n: number) => Math.round(n).toLocaleString("en-US");
 const levelColor = { HIGH: "text-rose-300", MED: "text-amber", LOW: "text-teal-200" } as const;
@@ -29,12 +31,16 @@ const defaults: Record<keyof Inputs, string> = {
   shift: "20",
 };
 
-export function Calculator() {
-  const [v, setV] = useState(defaults);
-  const r = useMemo(
-    () => calculate(Object.fromEntries(Object.entries(v).map(([k, x]) => [k, Number(x)])) as Inputs),
+export type CalculatorInitial = Record<keyof Inputs, string>;
+
+export function Calculator({ initial }: { initial?: CalculatorInitial }) {
+  const [v, setV] = useState<CalculatorInitial>(initial ?? defaults);
+  const inputs = useMemo(
+    () => Object.fromEntries(Object.entries(v).map(([k, x]) => [k, Number(x)])) as Inputs,
     [v],
   );
+  const r = useMemo(() => calculate(inputs), [inputs]);
+  const shareUrl = `${PUBLIC_URL}${resultPath(inputs)}`;
 
   return (
     <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
@@ -60,7 +66,9 @@ export function Calculator() {
             </li>
           ))}
         </ul>
-        <p className="mt-3 text-xs text-muted">Pre-filled with an example 20-room hotel. Replace with your numbers.</p>
+        <p className="mt-3 text-xs text-muted">
+          {initial ? "Pre-filled from a shared link. Change any number to see your own." : "Pre-filled with an example 20-room hotel. Replace with your numbers."}
+        </p>
       </div>
 
       <article
@@ -97,6 +105,18 @@ export function Calculator() {
                   <dd className="font-mono text-foreground">{fmt(r.roomRevenue)}</dd>
                 </div>
               </dl>
+              <div className="mt-6 border-t border-line pt-4" data-testid="share-result">
+                <p className="text-xs text-muted">
+                  Share this result. The link carries your numbers, so anyone who opens it sees the same math.
+                  Nothing is stored.
+                </p>
+                <div className="mt-3 flex flex-wrap items-center gap-2">
+                  <ShareBar url={shareUrl} text={`My hotel pays about ${resultHeadline(r)}. Free calculator:`} />
+                  <a href={resultPath(inputs)} className="text-sm text-muted underline underline-offset-2 hover:text-foreground">
+                    Open result page
+                  </a>
+                </div>
+              </div>
             </>
           )}
         </div>

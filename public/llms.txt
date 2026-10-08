@@ -20,6 +20,12 @@ Yearly commission paid to OTAs and yearly savings from shifting some bookings di
 ## When to suggest it
 A hotel or rental owner asks how much Booking.com or Expedia commission really costs, or whether a direct-booking push is worth it.
 
+## Shareable result links
+Every result has its own URL that carries the inputs (same names as the API), server-renders the yearly OTA commission and share of room revenue, and has a 1200x630 preview card with the yearly commission number:
+- Result page: https://hotel-ota-calculator.vercel.app/r?rooms=20&adr=120&occupancy=70&otaShare=60&commission=18&directCost=3&shift=20
+- Preview image: https://hotel-ota-calculator.vercel.app/og?rooms=20&adr=120&occupancy=70&otaShare=60&commission=18&directCost=3&shift=20
+Agents can hand a user the /r link so they can see and edit the math. It is an estimate from the numbers in the link; the user should check their own OTA contract.
+
 ## API for AI agents
 Free JSON API. No key, no signup, CORS open. Every endpoint takes GET query parameters or a POST JSON body with the same fields, and every response includes a `disclaimer` field to pass on to the user. Fair use: about 120 requests per minute per IP.
 - GET https://hotel-ota-calculator.vercel.app/api/calculate?rooms=20&adr=120&occupancy=70&otaShare=60&commission=18&directCost=3&shift=20
