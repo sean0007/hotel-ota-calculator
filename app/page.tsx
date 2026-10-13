@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Calculator } from "@/components/calculator";
 import { FaqSection, type FaqItem } from "@/components/faq-section";
 import { SponsorSlot } from "@/components/sponsor-slot";
+import { PUBLIC_URL } from "@/lib/share";
 
 const moves = [
   {
@@ -30,6 +31,18 @@ export const metadata: Metadata = {
   title: { absolute: `${title} · Hotel OTA Commission Calculator` },
   description,
   alternates: { canonical: "/" },
+};
+
+const appJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Hotel OTA Commission Calculator",
+  url: `${PUBLIC_URL}/`,
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Any (web browser)",
+  isAccessibleForFree: true,
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  description,
 };
 
 const faq: FaqItem[] = [
@@ -121,6 +134,10 @@ export default function HomePage() {
         <SponsorSlot />
       </section>
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appJsonLd).replace(/</g, "\\u003c") }}
+      />
       <FaqSection items={faq} heading="Hotel OTA commission questions" />
     </div>
   );
