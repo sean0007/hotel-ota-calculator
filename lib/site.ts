@@ -25,6 +25,7 @@ export const SIBLING_TOOLS = [
   { href: "https://japan-reentry-check.vercel.app", label: "Japan Re-entry Deadline Check" },
   { href: "https://japan-overseas-dependents.vercel.app", label: "Japan Overseas Dependents Check" },
   { href: "https://japan-parttime-check.vercel.app", label: "Japan Part-time Work Check" },
+  { href: "https://japan-driving-check.vercel.app", label: "Japan Driving Check" },
   { href: "https://saas-bill-cutter.vercel.app", label: "SaaS Bill Cutter" },
   { href: "https://ads-risk-check.vercel.app", label: "Ads Risk Check" },
   { href: "https://faceless-yt-risk-check.vercel.app", label: "Faceless YT Reality Check" },
